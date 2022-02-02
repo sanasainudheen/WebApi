@@ -23,6 +23,8 @@ namespace Test_WebApi.Context
 
         public DbSet<CreateRequest> CreateRequest { get; set; }
 
+        public DbSet<EmployeeModel> Employees { get; set; }
+
 
     }
 }

@@ -37,6 +37,10 @@ namespace Test_WebApi
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
             });
             services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApplication1", Version = "v1" });
+            });
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("EmployeeConndb")));
             
             services.AddScoped<IUserRepository, UserRepository>();
@@ -76,7 +80,9 @@ namespace Test_WebApi
             {
                 app.UseCors(options => options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
                 app.UseDeveloperExceptionPage();
-              
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApplication1 v1"));
+
             }
 
             app.UseHttpsRedirection();

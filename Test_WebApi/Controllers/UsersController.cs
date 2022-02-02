@@ -5,6 +5,7 @@ using Test_WebApi.Models;
 using Test_WebApi.Repository;
 using Microsoft.AspNetCore.Authorization;
 
+
 namespace Test_WebApi.Controllers
 {
     [Route("api/[controller]")]
@@ -39,8 +40,18 @@ namespace Test_WebApi.Controllers
         [HttpPost("")]
         public async Task<IActionResult> AddUserAsync([FromBody] UserModel userModel)
         {
-            var id = await _userRepository.AddUserAsync(userModel);
-            return CreatedAtAction(nameof(GetUserById), new { id = id, controller = "Users" }, id);
+           
+                var id = await _userRepository.AddUserAsync(userModel);
+            if (id != 0)
+            {
+                return Ok();
+                //return CreatedAtAction(nameof(GetUserById), new { id = id, controller = "Users" }, id);
+            }
+            else
+            {
+                return BadRequest("Username Already Exists");
+            }
+           
 
         }
         [HttpPut("{userId}")]
@@ -57,6 +68,7 @@ namespace Test_WebApi.Controllers
             return Ok();
 
         }
-        
+      
+
     }
 }

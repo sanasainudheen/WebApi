@@ -1,4 +1,5 @@
-﻿namespace Test_WebApi.Models
+﻿using System.ComponentModel.DataAnnotations;
+namespace Test_WebApi.Models
 {
     public class RequestDataModel
     {
