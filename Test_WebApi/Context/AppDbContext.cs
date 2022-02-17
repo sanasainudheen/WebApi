@@ -19,11 +19,16 @@ namespace Test_WebApi.Context
         public DbSet<Service> Services { get; set; }
 
         public DbSet<Request> Requests { get; set; }
-        public DbSet<RequestDataModel> RequestData { get; set; }
+        public DbSet<FetchOrdersModel> OrdersData { get; set; }
+        public DbSet<FetchServicesModel> ServicesData { get; set; }
 
         public DbSet<CreateRequest> CreateRequest { get; set; }
 
         public DbSet<EmployeeModel> Employees { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<OrderDetails> OrderDetails { get; set; }
 
 
     }

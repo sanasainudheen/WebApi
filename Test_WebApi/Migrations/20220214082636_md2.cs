@@ -2,7 +2,7 @@
 
 namespace Test_WebApi.Migrations
 {
-    public partial class md7 : Migration
+    public partial class md2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,9 +11,11 @@ namespace Test_WebApi.Migrations
                 AS
                 BEGIN
                     SET NOCOUNT ON;
-                    select R.Id,R.categoryid,R.serviceid, U.name, C.categoryName,S.serviceName from Requests R inner join Categories C ON C.id=R.categoryid
-inner join services S on S.id=R.serviceId
-inner join users U ON U.id=R.userid
+                    select O.ReqId,O.PayMode,O.Status,O.UserId, U.name,
+					case O.PayMode when 1 then 'Debit Card' else 'Credit Card' end as PaymentMode,
+					case O.Status when 1 then 'Pending' when 2 then 'Completed' when 3 then 'Cancelled'end as OrderStatus,
+					O.MainDocFileName
+					from Orders O inner join users U ON U.id=O.userid
                 END";
 
             migrationBuilder.Sql(sp);

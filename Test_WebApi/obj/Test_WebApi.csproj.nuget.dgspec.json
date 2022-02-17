@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\24_01_2022\\Test_WebApi\\Test_WebApi\\Test_WebApi.csproj": {}
+    "E:\\React\\12_02_2022\\Test_WebApi\\Test_WebApi\\Test_WebApi.csproj": {}
   },
   "projects": {
-    "E:\\24_01_2022\\Test_WebApi\\Test_WebApi\\Test_WebApi.csproj": {
+    "E:\\React\\12_02_2022\\Test_WebApi\\Test_WebApi\\Test_WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\24_01_2022\\Test_WebApi\\Test_WebApi\\Test_WebApi.csproj",
+        "projectUniqueName": "E:\\React\\12_02_2022\\Test_WebApi\\Test_WebApi\\Test_WebApi.csproj",
         "projectName": "Test_WebApi",
-        "projectPath": "E:\\24_01_2022\\Test_WebApi\\Test_WebApi\\Test_WebApi.csproj",
+        "projectPath": "E:\\React\\12_02_2022\\Test_WebApi\\Test_WebApi\\Test_WebApi.csproj",
         "packagesPath": "C:\\Users\\sana\\.nuget\\packages\\",
-        "outputPath": "E:\\24_01_2022\\Test_WebApi\\Test_WebApi\\obj\\",
+        "outputPath": "E:\\React\\12_02_2022\\Test_WebApi\\Test_WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Test_WebApi.Context;
 
 namespace Test_WebApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220211202919_md1")]
+    partial class md1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -204,73 +206,34 @@ namespace Test_WebApi.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("Test_WebApi.Models.FetchOrdersModel", b =>
+            modelBuilder.Entity("Test_WebApi.Models.RequestDataModel", b =>
                 {
-                    b.Property<int>("ReqId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("MainDocFileName")
+                    b.Property<string>("categoryName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OrderStatus")
+                    b.Property<string>("endDate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PayMode")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PaymentMode")
+                    b.Property<string>("modeOfPay")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
 
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ReqId");
-
-                    b.ToTable("OrdersData");
-                });
-
-            modelBuilder.Entity("Test_WebApi.Models.FetchServicesModel", b =>
-                {
-                    b.Property<int>("ReqDetId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CategoryName")
+                    b.Property<string>("serviceName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DocumentFileName")
+                    b.Property<string>("startDate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EndDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("Id");
 
-                    b.Property<int>("ReqId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ServiceId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ServiceName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StartDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ReqDetId");
-
-                    b.ToTable("ServicesData");
+                    b.ToTable("RequestData");
                 });
 #pragma warning restore 612, 618
         }
